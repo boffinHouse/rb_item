@@ -1,0 +1,26 @@
+---
+component: rb_item
+---
+
+<article class="rb-item">
+	<div class="item-inner">
+		{{#if media}}
+			<div class="item-mediabox">
+				<div class="item-standard-mediabox-inner">
+					<img class="item-standard-media" src="{{ media.image.src }}" alt=""/>
+				</div>
+			</div>
+		{{/if}}
+		{{#or title hook }}
+			<div class="item-textbox">
+				{{#if title}}
+					<h2 class="item-title">{{ title }}</h2>
+				{{/if}}
+				{{#if hook }}
+					<p class="item-text">{{ hook }}</p>
+				{{/if}}
+			</div>
+		{{/or}}
+	</div>
+	{{#if link}}<a class="item-standard-link" href="{{ link }}">{{ title }}<span>More</span></a>{{/if}}
+</article>
