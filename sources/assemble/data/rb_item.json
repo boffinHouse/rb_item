@@ -1,5 +1,17 @@
 {
-  "title": "Starter Kit",
+  "type": "",
+  "headline": {
+    "title": "Starter Kit"
+  },
+  "media": {
+    "image": {
+      "srcs": [
+        "http://lorempixel.com/340/191 300w 191h",
+        "http://lorempixel.com/640/360 600w 360h",
+        "http://lorempixel.com/940/529 900w 529h"
+      ]
+    }
+  },
   "hook": "To boost your project startup. Start your project with the Rawblock Starter Kit.",
   "link": "#"
 }

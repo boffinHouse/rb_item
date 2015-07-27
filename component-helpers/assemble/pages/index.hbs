@@ -3,10 +3,14 @@ title: Index – Project-Overview
 layout: default_tpl.hbs
 ---
 
+<div class="is-column-group is-gutter">
+	<div class="is-size-50 is-size-100-s">
+		{{#with rb_item}}
+			{{> rb_item}}
+		{{/with}}
+	</div>
+</div>
 
-{{#with rb_item}}
-	{{> rb_item}}
-{{/with}}
 
 
 
