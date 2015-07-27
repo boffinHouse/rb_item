@@ -10,6 +10,13 @@
 
 		<link href="css/styles.css" rel="stylesheet" />
 		<script src="js/object-assign.js"></script>
+		<script>
+			(function(docElem){
+				if(!window.fetch || !docElem.closest || !String.prototype.includes){ //  || !Object.assign || !docElem.before || !docElem.queryAll || !Array.prototype.find
+					document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/dom4/1.4.6/dom4.js"><\/script>');
+				}
+			})(document.documentElement);
+		</script>
 
 		<script src="https://boffinhouse.github.io/rawblock/sources/js/libs/rb-life.js"></script>
 		<script src="https://afarkas.github.io/lazysizes/lazysizes.js"></script>

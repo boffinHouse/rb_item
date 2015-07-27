@@ -1,23 +1,19 @@
-(function(factory) {
-	if(typeof define === 'function' && define.amd){
-		define(factory);
-	}
-	else if(typeof module == 'object' && module.exports){
-		module.exports = factory();
-	} else {
-		factory();
-	}
-}( function() {
+( function() {
 	'use strict';
-	var dom = window.jQuery || window.dom;
+	document.addEventListener('click', function(e){
 
-	return rbLife.Widget.extend('item', {
-		defaults: {},
-		init: function(element){
-			this._super(element);
-			this.$element = dom(element);
+		if(e.defaultPrevented || ('form' in e.target) || e.target.matches('a[href], a *') || !e.target.matches('.rb-item, .rb-item *')){console.log(e, 'no');return;}
+		var event;
+		var item = e.target.closest('.rb-item');
+		var link = item.querySelector('.item-link');
 
-			console.log(this.element, this.options);
-		},
+		if(link){
+			if(window.MouseEvent && link.dispatchEvent){
+				event = new MouseEvent('click', {shiftKey: e.shiftKey, altKey: e.altKey, ctrlKey: e.ctrlKey, metaKey: e.metaKey});
+				link.dispatchEvent(event);
+			} else if(link.click) {
+				link.click();
+			}
+		}
 	});
-}));
+})();
