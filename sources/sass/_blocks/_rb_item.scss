@@ -4,50 +4,86 @@ rb-item
 ----------------------------------------------------------
 
 **********************************************************/
+//General
+$item-bg: rgba(#fff, 0) !default;
+$item-padding: 0 !default;
+
+//Mediabox
+$item-mediabox-margin: 0 0 20px !default;
+$item-mediabox-bg: #eee !default;
+
+//Title
+$item-title-font: sans-serif !default;
+$item-title-fontsize: 24px !default;
+$item-title-lineheight: 28px !default;
+$item-title-fontweight: 600 !default;
+$item-title-color: blue !default;
+$item-title-margin: 0 0 10px !default;
+
+//Text
+$item-text-font: sans-serif !default;
+$item-text-fontsize: 28px !default;
+$item-text-lineheight: 24px !default;
+$item-text-fontweight: 400 !default;
+$item-text-color: #333 !default;
+$item-text-margin: 0 0 10px !default;
+
+//If Teaser (Linked)
+$item-title-color-hover: green !default;
+
 .rb-item {
 	position: relative;
 	width: 100%;
-
-	.item-inner {
-		pointer-events: none;
-		position: relative;
-		z-index: -1;
-	}
-
-	.item-title {
-
-	}
-
-	.item-link {
-		@include rb-hide-text;
-		position: absolute;
-		display: block;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: 100;
-		background: rgba(#fff, 0);
-	}
+	padding: $item-padding;
+	background: $item-bg;
 
 	.item-mediabox {
+		display: block;
 		position: relative;
 		height: 0;
-		display: block;
 		width: 100%;
+		margin: $item-mediabox-margin;
 		padding-bottom: calc(9/16 * 100%); //16:9 ratio
-		margin-bottom: 20px;
+		background: $item-mediabox-bg;
 	}
 
 	.item-media {
+		display: block;
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		display: block;
+	}
+
+	//Text content
+	.item-textbox {
+
+	}
+
+	.item-title {
+		margin: $item-title-margin;
+		font: $item-title-fontweight $item-title-fontsize/$item-title-lineheight $item-title-font;
+		color: $item-title-color;
+	}
+
+	.item-text {
+		margin: $item-text-margin;
+		font: $item-text-fontweight $item-text-fontsize/$item-text-lineheight $item-text-font;
+		color: $item-text-color;
+	}
+
+	//If teaser then item is linked, so other
+	&.is-teaser {
+		cursor: pointer;
+		transition: all 400ms;
+
+		&:hover,
+		&:focus {
+
+		}
+
+
 	}
 }
 

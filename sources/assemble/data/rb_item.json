@@ -1,10 +1,11 @@
 {
-  "type": "",
+  "type": "is-teaser",
   "headline": {
     "title": "Starter Kit"
   },
   "media": {
     "image": {
+      "lazy": false,
       "srcs": [
         "http://lorempixel.com/340/191 300w 191h",
         "http://lorempixel.com/640/360 600w 360h",
@@ -13,5 +14,8 @@
     }
   },
   "hook": "To boost your project startup. Start your project with the Rawblock Starter Kit.",
-  "link": "#"
+  "link": {
+    "href": "http://www.boffinhouse.com",
+    "actionText": "More.."
+  }
 }

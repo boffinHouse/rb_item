@@ -1,30 +1,32 @@
 ---
 component: rb_item
 ---
+<article class="rb-item {{ type }}">
+	{{#if headline.title}}
+		<h2 class="item-title">{{ headline.title }}</h2>
+	{{/if}}
+	{{#if media}}
+		<div class="item-mediabox">
+			<img class="item-media {{#if lazy}}lazyload{{/if}}"
+			     {{#if lazy }}
+			     data-srcset="{{join  media.image.srcs ", "}}"
+			     {{else}}
+				 src="{{first media.image.srcs}}"
+			     srcset="{{join  media.image.srcs ", "}}"
+			     {{/if}}
+			     alt=""/>
+		</div>
+	{{/if}}
+	{{#or title hook }}
+		<div class="item-textbox">
+			{{#if hook }}
+				<p class="item-text">{{ hook }}</p>
+			{{/if}}
 
-<article class="rb-item">
-	<div class="item-inner">
-		{{#if media}}
-			<div class="item-mediabox">
-				<img class="item-media lazyload"
-				     data-srcset="{{join  media.image.srcs ", "}}"
-
-				     alt=""/>
-			</div>
-		{{/if}}
-		{{#or title hook }}
-			<div class="item-textbox">
-				{{#if headline.title}}
-					<h2 class="item-title">{{ headline.title }}</h2>
-				{{/if}}
-				{{#if hook }}
-					<p class="item-text">{{ hook }}</p>
-				{{/if}}
-			</div>
-		{{/or}}
-
-		<span>More</span>
-	</div>
-	{{#if link}}<a class="item-link" href="{{ link }}">{{ title }}</a>{{/if}}
-
+			{{#if link.href}}
+				<a class="item-link" href="{{ link.href }}"><span class="item-link-title">{{ title }}</span>{{
+				link.actionText }}</a>
+			{{/if}}
+		</div>
+	{{/or}}
 </article>
