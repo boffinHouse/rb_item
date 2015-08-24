@@ -22,29 +22,42 @@ $item-title-margin: 0 0 10px !default;
 
 //Text
 $item-text-font: sans-serif !default;
-$item-text-fontsize: 28px !default;
+$item-text-fontsize: 18px !default;
 $item-text-lineheight: 24px !default;
 $item-text-fontweight: 400 !default;
 $item-text-color: #333 !default;
-$item-text-margin: 0 0 10px !default;
+$item-text-margin: 0 0 20px !default;
 
-//If Teaser (Linked)
-$item-title-color-hover: green !default;
+//-----------------------
+// If Teaser (Linked)
+//-----------------------
+$item-title-color-hover: #328055 !default;
+
+//Link
+$item-link-font: sans-serif !default;
+$item-link-fontsize: 18px !default;
+$item-link-lineheight: 24px !default;
+$item-link-fontweight: 400 !default;
+$item-link-color: #fff !default;
+$item-link-margin: 0 0 10px !default;
+$item-link-padding: 10px !default;
+$item-link-bg: green !default;
+$item-link-bg-hover: #328055 !default;
 
 .rb-item {
 	position: relative;
 	width: 100%;
-	padding: $item-padding;
-	background: $item-bg;
+	padding: #{$item-padding};
+	background: #{$item-bg};
 
 	.item-mediabox {
 		display: block;
 		position: relative;
 		height: 0;
 		width: 100%;
-		margin: $item-mediabox-margin;
+		margin: #{$item-mediabox-margin};
 		padding-bottom: calc(9/16 * 100%); //16:9 ratio
-		background: $item-mediabox-bg;
+		background: #{$item-mediabox-bg};
 	}
 
 	.item-media {
@@ -62,27 +75,48 @@ $item-title-color-hover: green !default;
 	}
 
 	.item-title {
-		margin: $item-title-margin;
-		font: $item-title-fontweight $item-title-fontsize/$item-title-lineheight $item-title-font;
-		color: $item-title-color;
+		margin: #{$item-title-margin};
+		font: #{$item-title-fontweight} #{$item-title-fontsize} / #{$item-title-lineheight} #{$item-title-font};
+		color: #{$item-title-color};
 	}
 
 	.item-text {
-		margin: $item-text-margin;
-		font: $item-text-fontweight $item-text-fontsize/$item-text-lineheight $item-text-font;
-		color: $item-text-color;
+		margin: #{$item-text-margin};
+		font: #{$item-text-fontweight} #{$item-text-fontsize} / #{$item-text-lineheight} #{$item-text-font};
+		color: #{$item-text-color};
 	}
+
 
 	//If teaser then item is linked, so other
 	&.is-teaser {
 		cursor: pointer;
 		transition: all 400ms;
 
-		&:hover,
-		&:focus {
-
+		.item-link {
+			display: inline-block;
+			padding: #{$item-link-padding};
+			font: #{$item-link-fontweight} #{$item-link-fontsize} / #{$item-link-lineheight} #{$item-link-font};
+			color: #{$item-link-color};
+			background: #{$item-link-bg};
 		}
 
+		//a11y solution
+		.item-link-title {
+			@include rb-hide-text;
+		}
+
+		&:hover,
+		&:focus {
+			.item-title {
+				color: #{$item-title-color-hover};
+			}
+
+			.item-link {
+				border: none;
+				outline: none;
+				background: #{$item-link-bg-hover};
+			}
+		}
 
 	}
 }

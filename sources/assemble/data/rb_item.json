@@ -6,14 +6,16 @@
   "media": {
     "image": {
       "lazy": false,
+      "fallback": "",
       "srcs": [
-        "http://lorempixel.com/340/191 300w 191h",
-        "http://lorempixel.com/640/360 600w 360h",
-        "http://lorempixel.com/940/529 900w 529h"
-      ]
+        "http://lorempixel.com/340/191 340w 191h",
+        "http://lorempixel.com/640/360 640w 360h",
+        "http://lorempixel.com/940/529 940w 529h"
+      ],
+      "sizes": ""
     }
   },
-  "hook": "To boost your project startup. Start your project with the Rawblock Starter Kit.",
+  "hook": "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do.",
   "link": {
     "href": "http://www.boffinhouse.com",
     "actionText": "More.."

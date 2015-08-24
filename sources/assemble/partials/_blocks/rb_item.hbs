@@ -9,10 +9,15 @@ component: rb_item
 		<div class="item-mediabox">
 			<img class="item-media {{#if lazy}}lazyload{{/if}}"
 			     {{#if lazy }}
-			     data-srcset="{{join  media.image.srcs ", "}}"
+		        data-srcset="{{join  media.image.srcs ", "}}"
+		        data-sizes="auto"
 			     {{else}}
-				 src="{{first media.image.srcs}}"
+				     {{#if media.image.fallback}}
+				        src="{{ media.image.fallback }}"
+				     {{/if}}
+
 			     srcset="{{join  media.image.srcs ", "}}"
+				     data
 			     {{/if}}
 			     alt=""/>
 		</div>
@@ -24,7 +29,7 @@ component: rb_item
 			{{/if}}
 
 			{{#if link.href}}
-				<a class="item-link" href="{{ link.href }}"><span class="item-link-title">{{ title }}</span>{{
+				<a class="item-link" href="{{ link.href }}"><span class="item-link-title">{{ headline.title }} </span>{{
 				link.actionText }}</a>
 			{{/if}}
 		</div>
