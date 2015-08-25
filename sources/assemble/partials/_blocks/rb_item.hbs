@@ -2,36 +2,44 @@
 component: rb_item
 ---
 <article class="rb-item {{ type }}">
-	{{#if headline.title}}
+	{{#is headline.inTextBox false}}
 		<h2 class="item-title">{{ headline.title }}</h2>
-	{{/if}}
-	{{#if media}}
-		<div class="item-mediabox">
-			<img class="item-media {{#if lazy}}lazyload{{/if}}"
-			     {{#if lazy }}
-		        data-srcset="{{join  media.image.srcs ", "}}"
-		        data-sizes="auto"
-			     {{else}}
-				     {{#if media.image.fallback}}
-				        src="{{ media.image.fallback }}"
-				     {{/if}}
+	{{/is}}
+	<div class="item-inner is-column-group is-gutter-horizontal">
+		{{#if media}}
+			<div class="item-mediabox is-size-50">
+				{{#if media.image }}
+					<img class="item-media {{#if media.image.lazy}}lazyload{{/if}}"
+						{{#if media.image.src}}
+						 src="{{ media.image.src }}"
+						{{/if}}
+						{{#if media.image.lazy }}
+						 data-srcset="{{join  media.image.srcs ", "}}"
+						 data-sizes="auto"
+						{{else}}
+						 srcset="{{join  media.image.srcs ", "}}"
+						 sizes="{{sizes}}"
+						{{/if}}
+						 alt=""/>
+				{{/if}}
+			</div>
+		{{/if}}
+		{{#or title link }}
+			<div class="item-textbox is-size-50">
+				{{#is headline.inTextBox true}}
+					<h2 class="item-title">{{ headline.title }}</h2>
+				{{/is}}
 
-			     srcset="{{join  media.image.srcs ", "}}"
-				     data
-			     {{/if}}
-			     alt=""/>
-		</div>
-	{{/if}}
-	{{#or title hook }}
-		<div class="item-textbox">
-			{{#if hook }}
-				<p class="item-text">{{ hook }}</p>
-			{{/if}}
+				{{#if hook }}
+					<p class="item-text">{{ hook }}</p>
+				{{/if}}
 
-			{{#if link.href}}
-				<a class="item-link" href="{{ link.href }}"><span class="item-link-title">{{ headline.title }} </span>{{
-				link.actionText }}</a>
-			{{/if}}
-		</div>
-	{{/or}}
+				{{#if link.href}}
+					<a class="item-link" href="{{ link.href }}"><span class="item-link-title">{{ headline.title }} </span>{{
+					link.actionText }}</a>
+				{{/if}}
+			</div>
+		{{/or}}
+	</div>
+
 </article>

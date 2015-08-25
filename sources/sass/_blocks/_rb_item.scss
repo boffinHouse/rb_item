@@ -9,7 +9,7 @@ $item-bg: rgba(#fff, 0) !default;
 $item-padding: 0 !default;
 
 //Mediabox
-$item-mediabox-margin: 0 0 20px !default;
+$item-mediabox-margin: 0 0 10px !default;
 $item-mediabox-bg: #eee !default;
 
 //Title
@@ -17,7 +17,8 @@ $item-title-font: sans-serif !default;
 $item-title-fontsize: 24px !default;
 $item-title-lineheight: 28px !default;
 $item-title-fontweight: 600 !default;
-$item-title-color: blue !default;
+$item-title-color: #ff2bac !default;
+$item-title-color-hover: #a50659 !default;
 $item-title-margin: 0 0 10px !default;
 
 //Text
@@ -31,18 +32,19 @@ $item-text-margin: 0 0 20px !default;
 //-----------------------
 // If Teaser (Linked)
 //-----------------------
-$item-title-color-hover: #328055 !default;
+
 
 //Link
 $item-link-font: sans-serif !default;
 $item-link-fontsize: 18px !default;
 $item-link-lineheight: 24px !default;
-$item-link-fontweight: 400 !default;
+$item-link-fontweight: 600 !default;
 $item-link-color: #fff !default;
+$item-link-display: block !default;
 $item-link-margin: 0 0 10px !default;
 $item-link-padding: 10px !default;
-$item-link-bg: green !default;
-$item-link-bg-hover: #328055 !default;
+$item-link-bg: #ff2bac !default;
+$item-link-bg-hover: #a50659 !default;
 
 .rb-item {
 	position: relative;
@@ -87,13 +89,13 @@ $item-link-bg-hover: #328055 !default;
 	}
 
 
-	//If teaser then item is linked, so other
+	//If teaser then item is linked
 	&.is-teaser {
 		cursor: pointer;
 		transition: all 400ms;
 
 		.item-link {
-			display: inline-block;
+			display: #{$item-link-display};
 			padding: #{$item-link-padding};
 			font: #{$item-link-fontweight} #{$item-link-fontsize} / #{$item-link-lineheight} #{$item-link-font};
 			color: #{$item-link-color};
@@ -106,7 +108,8 @@ $item-link-bg-hover: #328055 !default;
 		}
 
 		&:hover,
-		&:focus {
+		&:focus,
+		&.is-focus-within {
 			.item-title {
 				color: #{$item-title-color-hover};
 			}
@@ -117,7 +120,6 @@ $item-link-bg-hover: #328055 !default;
 				background: #{$item-link-bg-hover};
 			}
 		}
-
 	}
 }
 

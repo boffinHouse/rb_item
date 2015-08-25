@@ -1,11 +1,12 @@
 {
   "type": "is-teaser",
   "headline": {
+    "inTextBox": false,
     "title": "Starter Kit"
   },
   "media": {
     "image": {
-      "lazy": false,
+      "lazy": true,
       "fallback": "",
       "srcs": [
         "http://lorempixel.com/340/191 340w 191h",
