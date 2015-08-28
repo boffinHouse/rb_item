@@ -9,7 +9,7 @@
 		var link = item.querySelector('.item-link');
 
 		if(link){
-			selection = window.getSelection();
+			selection = getSelection();
 			if(selection.anchorNode && !selection.isCollapsed && item.contains(selection.anchorNode)){
 				return;
 			}
