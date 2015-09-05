@@ -10,13 +10,16 @@ component: rb_item
 			<div class="item-mediabox is-size-50">
 				{{#if media.image }}
 					<img class="item-media {{#if media.image.lazy}}lazyload{{/if}}"
-						{{#if media.image.src}}
-						 src="{{ media.image.src }}"
-						{{/if}}
 						{{#if media.image.lazy }}
+							{{#if media.image.src}}
+								data-src="{{ media.image.src }}"
+							{{/if}}
 						 data-srcset="{{join  media.image.srcs ", "}}"
 						 data-sizes="auto"
 						{{else}}
+							{{#if media.image.src}}
+								src="{{ media.image.src }}"
+							{{/if}}
 						 srcset="{{join  media.image.srcs ", "}}"
 						 sizes="{{sizes}}"
 						{{/if}}
