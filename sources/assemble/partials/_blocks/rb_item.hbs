@@ -38,7 +38,7 @@ component: rb_item
 				{{/if}}
 
 				{{#if link.href}}
-					<a class="item-link" href="{{ link.href }}"><span class="item-link-title">{{ headline.title }} </span>{{
+					<a class="item-link{{#is type 'is-teaser'}} {{type}}-link{{/is}}" href="{{ link.href }}"><span class="item-link-title">{{ headline.title }} </span>{{
 					link.actionText }}</a>
 				{{/if}}
 			</div>
