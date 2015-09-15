@@ -52,67 +52,69 @@ $item-link-bg-hover: #a50659 !default;
 	padding: #{$item-padding};
 	background: #{$item-bg};
 
-	.item-mediabox {
-		display: block;
-		position: relative;
-		height: 0;
-		width: 100%;
-		margin: #{$item-mediabox-margin};
-		padding-bottom: calc(9/16 * 100%); //16:9 ratio
-		background: #{$item-mediabox-bg};
-	}
-
-	.item-media {
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	//Text content
-	.item-textbox {
-
-	}
-
-	.item-title {
-		margin: #{$item-title-margin};
-		font: #{$item-title-fontweight} #{$item-title-fontsize} / #{$item-title-lineheight} #{$item-title-font};
-		color: #{$item-title-color};
-	}
-
-	.item-text {
-		margin: #{$item-text-margin};
-		font: #{$item-text-fontweight} #{$item-text-fontsize} / #{$item-text-lineheight} #{$item-text-font};
-		color: #{$item-text-color};
-	}
-
-
-	//If teaser then item is linked
 	&.is-teaser {
 		cursor: pointer;
 		transition: all 400ms;
+	}
+}
 
-		.item-link {
-			display: #{$item-link-display};
-			padding: #{$item-link-padding};
-			font: #{$item-link-fontweight} #{$item-link-fontsize} / #{$item-link-lineheight} #{$item-link-font};
-			color: #{$item-link-color};
-			background: #{$item-link-bg};
-		}
+.item-mediabox-inner {
+	display: block;
+	position: relative;
+	height: 0;
+	width: 100%;
+	margin: #{$item-mediabox-margin};
+	padding-bottom: calc(9/16 * 100%); //16:9 ratio
+	background: #{$item-mediabox-bg};
+}
 
-		//a11y solution
-		.item-link-title {
-			@include rb-hide-text;
-		}
+.item-media {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 
+//Text content
+.item-textbox {
+
+}
+
+.item-title {
+	margin: #{$item-title-margin};
+	font: #{$item-title-fontweight} #{$item-title-fontsize} / #{$item-title-lineheight} #{$item-title-font};
+	color: #{$item-title-color};
+
+	.is-teaser & {
 		&:hover,
 		&:focus,
 		&.is-focus-within {
 			.item-title {
 				color: #{$item-title-color-hover};
 			}
+		}
+	}
+}
+
+.item-text {
+	margin: #{$item-text-margin};
+	font: #{$item-text-fontweight} #{$item-text-fontsize} / #{$item-text-lineheight} #{$item-text-font};
+	color: #{$item-text-color};
+}
+
+.item-link {
+	display: #{$item-link-display};
+	padding: #{$item-link-padding};
+	font: #{$item-link-fontweight} #{$item-link-fontsize} / #{$item-link-lineheight} #{$item-link-font};
+	color: #{$item-link-color};
+	background: #{$item-link-bg};
+
+	.is-teaser & {
+		&:hover,
+		&:focus,
+		&.is-focus-within {
 
 			.item-link {
 				border: none;
@@ -123,3 +125,10 @@ $item-link-bg-hover: #a50659 !default;
 	}
 }
 
+//a11y solution
+.item-link-title {
+
+	.is-teaser & {
+		@include rb-hide-text;
+	}
+}

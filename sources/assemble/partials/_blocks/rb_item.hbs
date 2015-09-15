@@ -5,30 +5,32 @@ component: rb_item
 	{{#is headline.inTextBox false}}
 		<h2 class="item-title">{{ headline.title }}</h2>
 	{{/is}}
-	<div class="item-inner is-column-group is-gutter-horizontal">
+	<div class="item-inner">
 		{{#if media}}
-			<div class="item-mediabox is-size-50">
-				{{#if media.image }}
-					<img class="item-media {{#if media.image.lazy}}lazyload{{/if}}"
-						{{#if media.image.lazy }}
-							{{#if media.image.src}}
-								data-src="{{ media.image.src }}"
+			<div class="item-mediabox">
+				<div class="item-mediabox-inner">
+					{{#if media.image }}
+						<img class="item-media {{#if media.image.lazy}}lazyload{{/if}}"
+							{{#if media.image.lazy }}
+								{{#if media.image.src}}
+                             data-src="{{ media.image.src }}"
+								{{/if}}
+                             data-srcset="{{join  media.image.srcs ", "}}"
+                             data-sizes="auto"
+							{{else}}
+								{{#if media.image.src}}
+                             src="{{ media.image.src }}"
+								{{/if}}
+                             srcset="{{join  media.image.srcs ", "}}"
+                             sizes="{{sizes}}"
 							{{/if}}
-						 data-srcset="{{join  media.image.srcs ", "}}"
-						 data-sizes="auto"
-						{{else}}
-							{{#if media.image.src}}
-								src="{{ media.image.src }}"
-							{{/if}}
-						 srcset="{{join  media.image.srcs ", "}}"
-						 sizes="{{sizes}}"
-						{{/if}}
-						 alt=""/>
-				{{/if}}
+							 alt=""/>
+					{{/if}}
+				</div>
 			</div>
 		{{/if}}
 		{{#or title link }}
-			<div class="item-textbox is-size-50">
+			<div class="item-textbox">
 				{{#is headline.inTextBox true}}
 					<h2 class="item-title">{{ headline.title }}</h2>
 				{{/is}}
