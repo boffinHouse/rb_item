@@ -5,9 +5,9 @@ component: rb_item
 	{{#is headline.inTextBox false}}
 		<h2 class="item-title">{{ headline.title }}</h2>
 	{{/is}}
-	<div class="item-inner">
+	<div class="item-inner is-column-group is-gutters-horizontal">
 		{{#if media}}
-			<div class="item-mediabox">
+			<div class="item-mediabox is-size-50">
 				<div class="item-mediabox-inner">
 					{{#if media.image }}
 						<img class="item-media {{#if media.image.lazy}}lazyload{{/if}}"
@@ -30,7 +30,7 @@ component: rb_item
 			</div>
 		{{/if}}
 		{{#or title link }}
-			<div class="item-textbox">
+			<div class="item-textbox is-size-50">
 				{{#is headline.inTextBox true}}
 					<h2 class="item-title">{{ headline.title }}</h2>
 				{{/is}}

@@ -4,12 +4,14 @@ rb-item
 ----------------------------------------------------------
 
 **********************************************************/
+$rbName: item;
+
 //General
 $item-bg: rgba(#fff, 0) !default;
 $item-padding: 0 !default;
 
 //Mediabox
-$item-mediabox-margin: 0 0 10px !default;
+$item-mediabox-margin: 0 !default;
 $item-mediabox-bg: #eee !default;
 
 //Title
@@ -46,14 +48,14 @@ $item-link-padding: 10px !default;
 $item-link-bg: #ff2bac !default;
 $item-link-bg-hover: #a50659 !default;
 
-.rb-item {
+.rb-#{$rbName} {
 	position: relative;
 	width: 100%;
 	padding: #{$item-padding};
 	background: #{$item-bg};
 
 	@at-root {
-		.item-mediabox-inner {
+		.#{$rbName}-mediabox-inner {
 			display: block;
 			position: relative;
 			height: 0;
@@ -63,7 +65,7 @@ $item-link-bg-hover: #a50659 !default;
 			background: #{$item-mediabox-bg};
 		}
 
-		.item-media {
+		.#{$rbName}-media {
 			display: block;
 			position: absolute;
 			top: 0;
@@ -73,23 +75,23 @@ $item-link-bg-hover: #a50659 !default;
 		}
 
 		//Text content
-		.item-textbox {
+		.#{$rbName}-textbox {
 
 		}
 
-		.item-title {
+		.#{$rbName}title {
 			margin: #{$item-title-margin};
 			font: #{$item-title-fontweight} #{$item-title-fontsize} / #{$item-title-lineheight} #{$item-title-font};
 			color: #{$item-title-color};
 		}
 
-		.item-text {
+		.#{$rbName}-text {
 			margin: #{$item-text-margin};
 			font: #{$item-text-fontweight} #{$item-text-fontsize} / #{$item-text-lineheight} #{$item-text-font};
 			color: #{$item-text-color};
 		}
 
-		.item-link {
+		.#{$rbName}-link {
 			display: #{$item-link-display};
 			padding: #{$item-link-padding};
 			font: #{$item-link-fontweight} #{$item-link-fontsize} / #{$item-link-lineheight} #{$item-link-font};
@@ -97,7 +99,7 @@ $item-link-bg-hover: #a50659 !default;
 			background: #{$item-link-bg};
 		}
 		//a11y solution
-		.item-link-title {
+		.#{$rbName}-link-title {
 			@include rb-hide-text;
 		}
 	}
@@ -111,11 +113,11 @@ $item-link-bg-hover: #a50659 !default;
 		&:focus,
 		&.is-focus-within {
 
-			.item-title {
+			.#{$rbName}-title {
 				color: #{$item-title-color-hover};
 			}
 
-			.item-link {
+			.#{$rbName}-link {
 				border: none;
 				outline: none;
 				background: #{$item-link-bg-hover};
