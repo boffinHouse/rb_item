@@ -10,8 +10,8 @@ rb-item
 	padding: 0;
 	background: #fff;
 
-	@at-root {
-		.item-mediabox-inner {
+	@at-root .item- {
+		&mediabox-inner {
 			display: block;
 			position: relative;
 			height: 0;
@@ -21,7 +21,7 @@ rb-item
 			background: #eee;
 		}
 
-		.item-media {
+		&media {
 			display: block;
 			position: absolute;
 			top: 0;
@@ -31,23 +31,23 @@ rb-item
 		}
 
 		//Text content
-		.item-textbox {
+		&textbox {
 
 		}
 
-		.item-title {
+		&title {
 			margin: 0 0 10px;
 			font: 600 24px/28px sans-serif;
 			color: #333;
 		}
 
-		.item-text {
+		&text {
 			margin: 0 0 20px;
 			font: 400 18px/24px sans-serif;
 			color: #333;
 		}
 
-		.item-link {
+		&link {
 			display: block;
 			padding: 10px;
 			font: 600 18px/24px sans-serif;
@@ -55,7 +55,7 @@ rb-item
 			background: #ff2bac;
 		}
 		//a11y solution
-		.item-link-title {
+		&link-title {
 			@include rb-hide-text;
 		}
 	}
