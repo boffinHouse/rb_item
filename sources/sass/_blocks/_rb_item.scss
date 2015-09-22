@@ -4,68 +4,24 @@ rb-item
 ----------------------------------------------------------
 
 **********************************************************/
-$rbName: item;
-
-//General
-$item-bg: rgba(#fff, 0) !default;
-$item-padding: 0 !default;
-
-//Mediabox
-$item-mediabox-margin: 0 !default;
-$item-mediabox-bg: #eee !default;
-
-//Title
-$item-title-font: sans-serif !default;
-$item-title-fontsize: 24px !default;
-$item-title-lineheight: 28px !default;
-$item-title-fontweight: 600 !default;
-$item-title-color: #ff2bac !default;
-$item-title-color-hover: #a50659 !default;
-$item-title-margin: 0 0 10px !default;
-
-//Text
-$item-text-font: sans-serif !default;
-$item-text-fontsize: 18px !default;
-$item-text-lineheight: 24px !default;
-$item-text-fontweight: 400 !default;
-$item-text-color: #333 !default;
-$item-text-margin: 0 0 20px !default;
-
-//-----------------------
-// If Teaser (Linked)
-//-----------------------
-
-
-//Link
-$item-link-font: sans-serif !default;
-$item-link-fontsize: 18px !default;
-$item-link-lineheight: 24px !default;
-$item-link-fontweight: 600 !default;
-$item-link-color: #fff !default;
-$item-link-display: block !default;
-$item-link-margin: 0 0 10px !default;
-$item-link-padding: 10px !default;
-$item-link-bg: #ff2bac !default;
-$item-link-bg-hover: #a50659 !default;
-
-.rb-#{$rbName} {
+.rb-item {
 	position: relative;
 	width: 100%;
-	padding: #{$item-padding};
-	background: #{$item-bg};
+	padding: 0;
+	background: #fff;
 
 	@at-root {
-		.#{$rbName}-mediabox-inner {
+		.item-mediabox-inner {
 			display: block;
 			position: relative;
 			height: 0;
 			width: 100%;
-			margin: #{$item-mediabox-margin};
+			margin: 0 0 10px;
 			padding-bottom: calc(9/16 * 100%); //16:9 ratio
-			background: #{$item-mediabox-bg};
+			background: #eee;
 		}
 
-		.#{$rbName}-media {
+		.item-media {
 			display: block;
 			position: absolute;
 			top: 0;
@@ -75,31 +31,31 @@ $item-link-bg-hover: #a50659 !default;
 		}
 
 		//Text content
-		.#{$rbName}-textbox {
+		.item-textbox {
 
 		}
 
-		.#{$rbName}title {
-			margin: #{$item-title-margin};
-			font: #{$item-title-fontweight} #{$item-title-fontsize} / #{$item-title-lineheight} #{$item-title-font};
-			color: #{$item-title-color};
+		.item-title {
+			margin: 0 0 10px;
+			font: 600 24px/28px sans-serif;
+			color: #333;
 		}
 
-		.#{$rbName}-text {
-			margin: #{$item-text-margin};
-			font: #{$item-text-fontweight} #{$item-text-fontsize} / #{$item-text-lineheight} #{$item-text-font};
-			color: #{$item-text-color};
+		.item-text {
+			margin: 0 0 20px;
+			font: 400 18px/24px sans-serif;
+			color: #333;
 		}
 
-		.#{$rbName}-link {
-			display: #{$item-link-display};
-			padding: #{$item-link-padding};
-			font: #{$item-link-fontweight} #{$item-link-fontsize} / #{$item-link-lineheight} #{$item-link-font};
-			color: #{$item-link-color};
-			background: #{$item-link-bg};
+		.item-link {
+			display: block;
+			padding: 10px;
+			font: 600 18px/24px sans-serif;
+			color: #fff;
+			background: #ff2bac;
 		}
 		//a11y solution
-		.#{$rbName}-link-title {
+		.item-link-title {
 			@include rb-hide-text;
 		}
 	}
@@ -113,14 +69,14 @@ $item-link-bg-hover: #a50659 !default;
 		&:focus,
 		&.is-focus-within {
 
-			.#{$rbName}-title {
-				color: #{$item-title-color-hover};
+			.item-title {
+				color: #a50659;
 			}
 
-			.#{$rbName}-link {
+			.item-link {
 				border: none;
 				outline: none;
-				background: #{$item-link-bg-hover};
+				background:  #a50659;
 			}
 		}
 	}
