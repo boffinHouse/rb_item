@@ -3,7 +3,9 @@ component: item
 ---
 <article class="rb-{{ component }} {{ type }}">
 	{{#is headline.inTextBox false}}
-		<h2 class="{{ component }}-title">{{ headline.title }}</h2>
+		<header class="{{ component }}-header">
+			<h2 class="{{ component }}-title">{{ headline.title }}</h2>
+		</header>
 	{{/is}}
 	<div class="{{ component }}-inner">
 		{{#if media}}
