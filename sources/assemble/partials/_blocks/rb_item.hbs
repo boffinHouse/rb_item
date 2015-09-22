@@ -1,16 +1,16 @@
 ---
-component: rb_item
+component: item
 ---
-<article class="rb-item {{ type }}">
+<article class="rb-{{ component }} {{ type }}">
 	{{#is headline.inTextBox false}}
-		<h2 class="item-title">{{ headline.title }}</h2>
+		<h2 class="{{ component }}-title">{{ headline.title }}</h2>
 	{{/is}}
-	<div class="item-inner is-column-group is-gutters-horizontal">
+	<div class="{{ component }}-inner">
 		{{#if media}}
-			<div class="item-mediabox is-size-50">
-				<div class="item-mediabox-inner">
+			<div class="{{ component }}-mediabox">
+				<div class="{{ component }}-mediabox-inner">
 					{{#if media.image }}
-						<img class="item-media {{#if media.image.lazy}}lazyload{{/if}}"
+						<img class="{{ component }}-media {{#if media.image.lazy}}lazyload{{/if}}"
 							{{#if media.image.lazy }}
 								{{#if media.image.src}}
                              data-src="{{ media.image.src }}"
@@ -30,17 +30,17 @@ component: rb_item
 			</div>
 		{{/if}}
 		{{#or title link }}
-			<div class="item-textbox is-size-50">
+			<div class="{{ component }}-textbox">
 				{{#is headline.inTextBox true}}
-					<h2 class="item-title">{{ headline.title }}</h2>
+					<h2 class="{{ component }}-title">{{ headline.title }}</h2>
 				{{/is}}
 
 				{{#if hook }}
-					<p class="item-text">{{ hook }}</p>
+					<p class="{{ component }}-text">{{ hook }}</p>
 				{{/if}}
 
 				{{#if link.href}}
-					<a class="item-link{{#is type 'is-teaser'}} {{type}}-link{{/is}}" href="{{ link.href }}"><span class="item-link-title">{{ headline.title }} </span>{{
+					<a class="{{ component }}-link{{#is type 'is-teaser'}} {{type}}-link{{/is}}" href="{{ link.href }}"><span class="{{ component }}-link-title">{{ headline.title }} </span>{{
 					link.actionText }}</a>
 				{{/if}}
 			</div>
