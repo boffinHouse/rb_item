@@ -9,12 +9,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<link href="css/styles.css" rel="stylesheet" />
-		<script src="js/object-assign.js"></script>
 		<script>
 			(function(docElem){
-				if(!window.fetch || !docElem.closest || !String.prototype.includes){ //  || !Object.assign || !docElem.before || !docElem.queryAll || !Array.prototype.find
-					document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/dom4/1.4.6/dom4.js"><\/script>');
-				}
+				docElem.classList.add('js');
+				docElem.classList.remove('no-js');
 			})(document.documentElement);
 		</script>
 
@@ -37,7 +35,7 @@
 							<label>
 								<input type="radio" name="domlib"
 								       value="rbdom"
-								       data-url="https://boffinhouse.github.io/rawblock/sources/js/libs/dom.js"
+								       data-url="https://boffinhouse.github.io/rawblock/sources/js/libs/rb_$.js"
 								       checked />
 								rbdom
 							</label>
@@ -75,7 +73,13 @@
 				document.write('<script src="' + input.getAttribute('data-url') +'"><\/script>');
 			})();
 		</script>
-		<script src="https://boffinhouse.github.io/rawblock/sources/js/libs/rawblock.js"></script>
+		<script src="https://boffinhouse.github.io/rawblock/sources/js/libs/rb_crucial.js"></script>
+		<script src="https://boffinhouse.github.io/rawblock/sources/js/libs/rb_main.js"></script>
+
+
+		<script>
+			rb.life.init();
+		</script>
 
 	</body>
 </html>

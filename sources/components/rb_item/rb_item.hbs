@@ -1,18 +1,18 @@
 ---
 component: item
 ---
-<article class="rb-{{ component }} {{ type }}">
+<article class="rb-item {{ type }}">
 	{{#is headline.inTextBox false}}
-		<header class="{{ component }}-header">
-			<h2 class="{{ component }}-title">{{ headline.title }}</h2>
+		<header class="item-header">
+			<h2 class="item-title">{{ headline.title }}</h2>
 		</header>
 	{{/is}}
-	<div class="{{ component }}-inner">
+	<div class="item-inner">
 		{{#if media}}
-			<div class="{{ component }}-mediabox">
-				<div class="{{ component }}-mediabox-inner">
+			<div class="item-mediabox">
+				<div class="item-mediabox-inner">
 					{{#if media.image }}
-						<img class="{{ component }}-media {{#if media.image.lazy}}lazyload{{/if}}"
+						<img class="item-media {{#if media.image.lazy}}lazyload{{/if}}"
 							{{#if media.image.lazy }}
 								{{#if media.image.src}}
                              data-src="{{ media.image.src }}"
@@ -32,17 +32,18 @@ component: item
 			</div>
 		{{/if}}
 		{{#or title link }}
-			<div class="{{ component }}-textbox">
+			<div class="item-textbox">
 				{{#is headline.inTextBox true}}
-					<h2 class="{{ component }}-title">{{ headline.title }}</h2>
+					<h2 class="item-title">{{ headline.title }}</h2>
 				{{/is}}
 
 				{{#if hook }}
-					<p class="{{ component }}-text">{{ hook }}</p>
+					<p class="item-text">{{ hook }}</p>
 				{{/if}}
 
 				{{#if link.href}}
-					<a class="{{ component }}-link{{#is type 'is-teaser'}} {{type}}-link{{/is}}" href="{{ link.href }}"><span class="{{ component }}-link-title">{{ headline.title }} </span>{{
+					<a class="{{ component }}-link{{#is type 'is-clickarea'}} {{type}}-action{{/is}}" href="{{ link.href
+					}}"><span class="{{ component }}-link-title">{{ headline.title }} </span>{{
 					link.actionText }}</a>
 				{{/if}}
 			</div>

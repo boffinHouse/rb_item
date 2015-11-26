@@ -1,5 +1,5 @@
 {
-  "type": "is-teaser",
+  "type": "is-clickarea",
   "headline": {
     "inTextBox": false,
     "title": "Starter Kit"
